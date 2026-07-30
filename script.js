@@ -80,19 +80,23 @@ document.getElementById("gallery").addEventListener("touchend", e => {
   if (touchEndX < touchStartX - 45) nextPhoto();
   if (touchEndX > touchStartX + 45) prevPhoto();
 }, {passive: true});
+
 function beginStory() {
     const audio = document.getElementById("music");
 
     if (!musicStarted) {
+        audio.volume = 0.5; // opsional
+
         audio.play().then(() => {
             musicStarted = true;
             document.getElementById("musicToggle").textContent = "🔊";
-        }).catch(err => console.log(err));
+        }).catch(err => {
+            console.log("Audio gagal diputar:", err);
+        });
     }
 
     goTo("password");
 }
-
 function goTo(id) {
 
     document.querySelectorAll(".scene").forEach(s=>{
