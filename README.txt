@@ -19,9 +19,9 @@ music.mp3
 Contoh:
 Birthday-Khansa/
 ├── index.html
-├── style.css
-├── script.js
 ├── music.mp3
+├── script.js
+├── style.css
 └── images/
 
 Lalu tombol musik di pojok kanan bawah bisa digunakan.
