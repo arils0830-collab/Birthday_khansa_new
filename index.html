@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>For Khansa 🤍</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+<h1> Audio AutoPlay</h1> 
+<audio id="backgroundMusic" autoplay loop>
+  <source src="SELAMAT ULANGTAHUN - Gellenmartadinata.mp3" type="audio/mp3">
+</audio>
+  <!-- CINEMATIC OPENING -->
+  <section id="opening" class="scene active">
+    <div class="film-grain"></div>
+    <div class="opening-content">
+      <p class="eyebrow">A LITTLE SURPRISE FOR SOMEONE SPECIAL</p>
+      <h1 class="cinema-title">A Story<br><span>About You</span></h1>
+      <div class="line"></div>
+      <p class="opening-sub">Every beautiful story has a favorite person.</p>
+      <button class="btn primary" onclick="goTo('password')">BEGIN THE STORY ✦</button>
+    </div>
+    <div class="scroll-hint">SCROLL TO BEGIN ↓</div>
+  </section>
+
+  <!-- PASSWORD -->
+  <section id="password" class="scene">
+    <div class="glass-card password-card">
+      <div class="lock">🔐</div>
+      <p class="eyebrow">THIS SURPRISE IS ONLY FOR</p>
+      <h2>KHANSA 🤍</h2>
+      <p class="muted">Masukkan password rahasia untuk membuka kejutanmu.</p>
+      <input id="passwordInput" type="password" placeholder="Password rahasia..." autocomplete="off">
+      <button class="btn primary" onclick="checkPassword()">UNLOCK MY SURPRISE ✨</button>
+      <p id="wrongPassword" class="error"></p>
+      <small class="hint">Hint: nama kamu sendiri 😉</small>
+    </div>
+  </section>
+
+  <!-- MEMORIES -->
+  <section id="memories" class="scene">
+    <div class="section-inner">
+      <p class="eyebrow">CHAPTER ONE</p>
+      <h2>Our Little Memories</h2>
+      <p class="muted">Some moments are ordinary. Until they become memories.</p>
+      <div class="cinema-gallery" id="gallery">
+        <div class="cinema-frame">
+          <div class="cinema-image-wrap">
+            <img id="cinemaImage" class="cinema-image" src="" alt="Memory Khansa">
+            <div class="cinema-vignette"></div>
+            <div class="cinema-caption">
+              <span id="cinemaCounter">01 / 09</span>
+              <span id="cinemaCaption">A little moment with you...</span>
+            </div>
+          </div>
+          <button class="cinema-arrow prev" onclick="prevPhoto()">‹</button>
+          <button class="cinema-arrow next" onclick="nextPhoto()">›</button>
+        </div>
+        <div class="cinema-dots" id="cinemaDots"></div>
+        <p class="cinema-note">Our memories, one frame at a time 🤍</p>
+      </div>
+      <button class="btn primary" onclick="goTo('birthday')">KEEP GOING 🤍</button>
+    </div>
+  </section>
+
+  <!-- BIRTHDAY -->
+  <section id="birthday" class="scene birthday-scene">
+    <div class="floating-hearts"></div>
+    <div class="balloons">
+      <span>🎈</span><span>🎈</span><span>🎈</span><span>🎈</span>
+    </div>
+    <div class="birthday-content">
+      <p class="eyebrow">TODAY IS YOUR DAY</p>
+      <h1>Happy Birthday</h1>
+      <h2>Khansa 🤍</h2>
+      <p class="birthday-text">Make a wish, beautiful...</p>
+      <div class="cake" id="cake" onclick="blowCandle()">
+        <div class="flame" id="flame">🔥</div>
+        <div class="candle"></div>
+        <div class="cake-top">🍓 🎂 🍓</div>
+        <div class="cake-body"></div>
+        <div class="plate"></div>
+      </div>
+      <p id="cakeMessage" class="cake-message">Klik kuenya untuk meniup lilin ✨</p>
+      <button class="btn primary hidden" id="letterBtn" onclick="goTo('letter')">OPEN MY LETTER 💌</button>
+    </div>
+    <canvas id="fireworks"></canvas>
+  </section>
+
+  <!-- LETTER -->
+  <section id="letter" class="scene letter-scene">
+    <div class="letter-wrap">
+      <div class="envelope" id="envelope" onclick="openLetter()">
+        <div class="envelope-back"></div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="seal">🤍</div>
+        <p>FOR KHANSA</p>
+      </div>
+
+      <div class="letter-paper" id="letterPaper">
+        <div class="paper-decoration">♡</div>
+        <p class="letter-to">@Neng Khansa</p>
+        <h2>Ohayooo sayangg 🤍</h2>
+        <p>Selamat ulang tahun yaa Maniss 🤍</p>
+        <p>Semoga selalu diberikan umur yang berkah, diberi rezeki yang lancar, dilancarkan semua urusan dan usahanya, dan selalu dikelilingi orang baik 🤍</p>
+        <p>Amiinn. Semangat terus sayangg. Aku selalu support apapun yang kamu lakukan.</p>
+        <p>Tetap sama aku terus yaa sayang 😘😘😘</p>
+        <p>Maafin aku yang masih jauh banget dari kata sempurna buat kamu. Maaf juga kalau aku kadang membuatmu ngambek dan sedih 🙏</p>
+        <p>Intinya aku sayang banget sama kamu.</p>
+        <p class="love-line">I Miss You & I Love You<br>Neng Geulis 🤍</p>
+        <button class="btn small" onclick="goTo('final')">ONE LAST THING ✨</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section id="final" class="scene final-scene">
+    <div class="final-content">
+      <div class="big-heart">♥</div>
+      <p class="eyebrow">THE END?</p>
+      <h1>Not really...</h1>
+      <p class="final-message">
+        Karena selama masih ada kamu,<br>
+        akan selalu ada cerita baru yang bisa kita buat bersama.
+      </p>
+      <h2>Happy Birthday, Khansa 🤍</h2>
+      <p class="signature">— from someone who loves you very much</p>
+      <div class="final-actions">
+        <button class="btn primary" onclick="replay()">WATCH AGAIN ↺</button>
+        <button class="btn secondary" onclick="launchConfetti()">MORE LOVE 🎉</button>
+      </div>
+    </div>
+    <div id="confetti"></div>
+  </section>
+
+  <button id="musicToggle" class="music-toggle" onclick="toggleMusic()">🔇</button>
+  <audio id="music" loop></audio>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
