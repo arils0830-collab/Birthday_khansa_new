@@ -7,8 +7,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="app">
-<h1> Audio AutoPlay</h1> 
+<div id="app"> 
 <audio id="music" loop preload="auto">
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -20,8 +19,9 @@
       <h1 class="cinema-title">A Story<br><span>About You</span></h1>
       <div class="line"></div>
       <p class="opening-sub">Every beautiful story has a favorite person.</p>
-      <button class="btn primary" onclick="goTo('password')">BEGIN THE STORY ✦</button>
-    </div>
+      <button class="btn primary" onclick="beginStory()">
+    BEGIN THE STORY ✦
+</button>
     <div class="scroll-hint">SCROLL TO BEGIN ↓</div>
   </section>
 
@@ -137,7 +137,6 @@
   </section>
 
   <button id="musicToggle" class="music-toggle" onclick="toggleMusic()">🔇</button>
-  <audio id="music" loop></audio>
 </div>
 <script src="script.js"></script>
 </body>
