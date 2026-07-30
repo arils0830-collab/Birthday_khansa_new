@@ -80,6 +80,18 @@ document.getElementById("gallery").addEventListener("touchend", e => {
   if (touchEndX < touchStartX - 45) nextPhoto();
   if (touchEndX > touchStartX + 45) prevPhoto();
 }, {passive: true});
+function beginStory() {
+    const audio = document.getElementById("music");
+
+    if (!musicStarted) {
+        audio.play().then(() => {
+            musicStarted = true;
+            document.getElementById("musicToggle").textContent = "🔊";
+        }).catch(err => console.log(err));
+    }
+
+    goTo("password");
+}
 
 function goTo(id) {
 
@@ -90,14 +102,6 @@ function goTo(id) {
     document.getElementById(id).classList.add("active");
     currentScene = id;
     window.scrollTo(0,0);
-
-    // Mainkan musik sekali saja
-    if (!musicStarted) {
-        const audio = document.getElementById("music");
-        audio.play().catch(()=>{});
-        musicStarted = true;
-        document.getElementById("musicToggle").textContent = "🔊";
-    }
 
     if (id === "birthday") {
         setTimeout(()=>{
