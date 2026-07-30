@@ -3,7 +3,10 @@ const PASSWORD = "khansa";
 const photoFiles = [
   "images/foto1.jpeg", "images/foto2.jpeg", "images/foto3.jpeg",
   "images/foto4.jpeg", "images/foto5.jpeg", "images/foto6.jpeg",
-  "images/foto7.jpeg", "images/foto8.jpeg", "images/foto9.jpeg"
+  "images/foto7.jpeg", "images/foto8.jpeg", "images/foto9.jpeg",
+  "images/foto10.jpeg", "images/foto11.jpeg", "images/foto12.jpeg",
+  "images/foto13.jpeg", "images/foto14.jpeg", "images/foto15.jpeg",
+  "images/foto16.jpeg", "images/foto17.jpeg", "images/foto18.jpeg",
 ];
 
 let currentScene = "opening";
@@ -79,20 +82,29 @@ document.getElementById("gallery").addEventListener("touchend", e => {
 }, {passive: true});
 
 function goTo(id) {
-  document.querySelectorAll(".scene").forEach(s => {
-    s.classList.remove("active");
-  });
-  const target = document.getElementById(id);
-  target.classList.add("active");
-  currentScene = id;
-  window.scrollTo(0, 0);
 
-  if (id === "birthday") {
-    setTimeout(() => {
-      launchConfetti();
-      startFireworks();
-    }, 700);
-  }
+    document.querySelectorAll(".scene").forEach(s=>{
+        s.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+    currentScene = id;
+    window.scrollTo(0,0);
+
+    // Mainkan musik sekali saja
+    if (!musicStarted) {
+        const audio = document.getElementById("music");
+        audio.play().catch(()=>{});
+        musicStarted = true;
+        document.getElementById("musicToggle").textContent = "🔊";
+    }
+
+    if (id === "birthday") {
+        setTimeout(()=>{
+            launchConfetti();
+            startFireworks();
+        },700);
+    }
 }
 
 function checkPassword() {
